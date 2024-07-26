@@ -1,0 +1,6 @@
+The edges of minimum spanning tree:
+(1, 2)
+(1, 4)
+(4, 3)
+The cost of minimum spanning tree:
+8
