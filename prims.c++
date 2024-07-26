@@ -32,10 +32,9 @@ void prims(int V)
         cost += wt;
 
         for (int i = 1; i <= V; i++) {
-            int adjNode = i;
             int edW = matrix[node][i];
-            if (!vis[adjNode] && (edW != 0 || edW < INFI)) {
-                pq.push({{edW, adjNode},node});
+            if (edW != 0 && edW != INFI && !vis[i]) {
+                pq.push({{edW, i},node});
             }
         }
     }
@@ -48,14 +47,15 @@ void prims(int V)
 }
 
 int main() {
-
+    cout << "Enter the number of vertices:\n";
 	int V;
     cin >> V;
 
+    cout << "Enter the adjacency matrix:\n";
     for(int i = 1; i <= V; i++)
         for(int j = 1; j <= V; j++)
             cin >> matrix[i][j];
-	prims(V);
 
+	prims(V);
 	return 0;
 }
