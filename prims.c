@@ -3,7 +3,7 @@
 
 int mst[10][3],adj_matrix[10][10];
 
-void prims(); 
+void prims(int); 
 
 void main() 
 { 
