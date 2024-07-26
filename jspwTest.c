@@ -1,6 +1,6 @@
 #include <iostream>
-const int V = 8;
-const int I = 99;
+#define V 8
+#define I 32767
 
 using namespace std;
  
