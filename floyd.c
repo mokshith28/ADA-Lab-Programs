@@ -13,15 +13,15 @@ void floyd()
                 dist[i][j]=min(dist[i][j],dist[i][k]+dist[k][j]);
 }
 
-void main()
+int main()
 {
     int i, j;
     printf("Enter the number of vertices :\n");
     scanf("%d",&n);
     printf("Enter the distance matrix\n");
-        for(i=1;i<=n;i++)
-            for( j=1;j<=n;j++)
-                scanf("%d",&dist[i][j]);
+    for(i=1;i<=n;i++)
+        for( j=1;j<=n;j++)
+            scanf("%d",&dist[i][j]);
     floyd();
     printf("\nAll pairs shortest path matrix is :\n");
     for( i=1;i<=n;i++)
@@ -32,4 +32,5 @@ void main()
         }
         printf("\n");
     }
+    return 0;
 }

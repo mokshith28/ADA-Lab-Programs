@@ -12,15 +12,15 @@ void warshall()
                 dist[i][j] = dist[i][j] || (dist[i][k] && dist[k][j]);
 }
 
-void main()
+int main()
 {
     int i, j;
     printf("Enter the number of vertices :\n");
     scanf("%d",&n);
     printf("Enter the adjacency matrix\n");
-        for(i=1;i<=n;i++)
-            for( j=1;j<=n;j++)
-                scanf("%d",&dist[i][j]);
+    for(i=1;i<=n;i++)
+        for( j=1;j<=n;j++)
+            scanf("%d",&dist[i][j]);
     warshall();
     printf("\nTrasitive closure of digraph is :\n");
     for( i=1;i<=n;i++)
@@ -31,4 +31,5 @@ void main()
         }
         printf("\n");
     }
+    return 0;
 }

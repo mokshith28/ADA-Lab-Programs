@@ -37,7 +37,7 @@ for(i=1;i<=n;i++)
 printf("%d\t",torder[i]);
 }
 }
-void main()
+int main()
 {
 int ad[MAX][MAX],n,i,j;
 printf("\n Enter the number of vertices: ");
@@ -47,4 +47,5 @@ for(i=1;i<=n;i++)
 for(j=1;j<=n;j++)
 scanf("%d",&ad[i][j]);
 top(ad,n);
+return 0;
 }
