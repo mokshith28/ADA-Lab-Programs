@@ -6,24 +6,24 @@ const int INFI = 99;
 int adj_matrix[10][10];
 
 void prims(int n) {
-    int mst[n - 1][2], near[n + 1], cost = 0;
+    int mst[n-1][2], near[n + 1], cost = 0;
 
     for (int i = 1; i <= n; i++)
         near[i] = INFI;
 
-    int u, v, min = INFI;
+    int u, v, min_edge = INFI;
     for (int i = 1; i <= n; i++) {
-        for (int j = i; j <= n; j++) {
-            if (i != j && adj_matrix[i][j] < min) {
-                min = adj_matrix[i][j];
+        for (int j = i+1; j <= n; j++) {
+            if (adj_matrix[i][j] < min_edge) {
+                min_edge = adj_matrix[i][j];
                 u = i;
                 v = j;
             }
         }
     }
-    cost += min;
     mst[0][0] = u;
     mst[0][1] = v;
+    cost += min_edge;
     near[u] = near[v] = 0;
 
     for (int i = 1; i <= n; i++) {
@@ -36,15 +36,15 @@ void prims(int n) {
     }
 
     for (int i = 1; i < n - 1; i++) {
-        min = INFI;
+        min_edge = INFI;
         int k;
         for (int j = 1; j <= n; j++) {
-            if (near[j] != 0 && adj_matrix[j][near[j]] < min) {
-                min = adj_matrix[j][near[j]];
+            if (near[j] != 0 && adj_matrix[j][near[j]] < min_edge) {
+                min_edge = adj_matrix[j][near[j]];
                 k = j;
             }
         }
-        cost += min;
+        cost += min_edge;
         mst[i][0] = k;
         mst[i][1] = near[k];
         near[k] = 0;
@@ -58,14 +58,14 @@ void prims(int n) {
     cout << "\nThe edges of minimum spanning tree:\n";
     for (int i = 0; i < n - 1; i++)
         cout << "(" << mst[i][0] << ", " << mst[i][1] << ")\n";
-    cout << "The cost of minimum spanning tree:\n" << cost << endl;
+    cout << "The cost of minimum spanning tree: " << cost << endl;
 }
 
 int main() {
     int n;
-    printf("\nEnter the number of vertices: ");
+    cout << "\nEnter the number of vertices: ";
     cin >> n;
-    printf("\nEnter the adjacency matrix: ");
+    cout << "\nEnter the adjacency matrix: ";
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= n; j++)
             cin >> adj_matrix[i][j];
