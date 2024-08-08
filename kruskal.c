@@ -1,8 +1,9 @@
 #include<stdio.h>
-
 #define INFI 99
 #define MAX 10
+
 int a[MAX][MAX], b[MAX][MAX], n, cost = 0;
+
 void findmin(int * v1, int * v2) //finding the edge having minimum weight.
 {
     int edge = INFI, i, j;
