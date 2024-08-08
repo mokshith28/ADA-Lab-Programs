@@ -1,5 +1,4 @@
 #include<stdio.h>
-
 #define INFI 99
 
 int mst[10][3], adj_matrix[10][10];
