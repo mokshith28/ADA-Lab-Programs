@@ -1,9 +1,8 @@
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <time.h>
- // Selection Sort function
+
+// Selection Sort function
 void selectionSort(int arr[], int n) {
     int temp;
     for (int i = 0; i < n - 2; i++) {
@@ -33,9 +32,8 @@ int main() {
         15000,
         20000
     }; // Array of n values
-    int num_values = sizeof(n_values) / sizeof(n_values[0]);
-    double time_taken[num_values];
-    for (int i = 0; i < num_values; i++) {
+    double time_taken[4];
+    for (int i = 0; i < 4; i++) {
         int n = n_values[i];
         int * arr = (int * ) malloc(n * sizeof(int));
         generateRandomArray(arr, n);
@@ -47,7 +45,7 @@ int main() {
     }
     // Output time taken for sorting each value of n
     printf("n\tTime Taken (s)\n");
-    for (int i = 0; i < num_values; i++) {
+    for (int i = 0; i < 4; i++) {
         printf("%d\t%f\n", n_values[i], time_taken[i]);
     }
     return 0;

@@ -1,13 +1,13 @@
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <time.h>
- // Function prototypes
+
+// Function prototypes
 void quickSort(int arr[], int low, int high);
 int partition(int arr[], int low, int high);
 void swap(int * a, int * b);
 void generateRandomArray(int arr[], int n);
+
 // Partition function
 int partition(int arr[], int low, int high) {
     // initialize pivot to be the first element 
@@ -65,10 +65,9 @@ int main() {
         15000,
         20000
     }; // Array of n values
-    int num_values = sizeof(n_values) / sizeof(n_values[0]);
     clock_t start, end;
-    double time_taken[num_values];
-    for (int i = 0; i < num_values; i++) {
+    double time_taken[4];
+    for (int i = 0; i < 4; i++) {
         int n = n_values[i];
         int * arr = (int * ) malloc(n * sizeof(int));
         generateRandomArray(arr, n);
@@ -79,7 +78,7 @@ int main() {
         free(arr);
     }
     printf("n\tTime Taken (s)\n");
-    for (int i = 0; i < num_values; i++) {
+    for (int i = 0; i < 4; i++) {
         printf("%d\t%f\n", n_values[i], time_taken[i]);
     }
     return 0;
